@@ -6,6 +6,11 @@ const router = express.Router();
 router.get('/', function (req, res, next) {
 
     const x = Math.round(Math.random()*100);
+    
+    if (req.query.x) {
+        x = (req.query.x);
+    }
+    
     res.write('Math.imul() applied to ' + x + ' is ' + Math.imul(x, x));
     res.write('\nMath.log() applied to ' + x + ' is ' + Math.log(x));
     res.write('\nMath.log10() applied to ' + x + ' is ' + Math.log10(x));
